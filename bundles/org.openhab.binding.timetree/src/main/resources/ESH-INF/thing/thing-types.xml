@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="timetree"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<bridge-type id="account">
+		<label>TimeTree Account</label>
+		<description>TimeTree Account</description>
+
+		<config-description>
+			<parameter name="personalAccessToken" type="text" required="true">
+				<label>Personal Access Token</label>
+				<description><![CDATA[The Personal Access Token, created by TimeTree. Look at https://timetreeapp.com/personal_access_tokens]]></description>
+			</parameter>
+			<parameter name="refresh" type="integer" unit="min" min="15">
+				<default>30</default>
+				<label>Refresh in Minutes</label>
+				<description>Time between to API requests in minutes. Minimum 15 minutes.</description>
+			</parameter>
+		</config-description>
+	</bridge-type>
+
+	<thing-type id="calendar">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="account"/>
+		</supported-bridge-type-refs>
+
+		<label>Calendar</label>
+		<description>Calendar</description>
+
+		<channels>
+			<channel id="calendarName" typeId="calendarName"/>
+			<channel id="updates" typeId="updates"/>
+		</channels>
+
+		<config-description>
+			<parameter name="eventDays" type="integer">
+				<label>EventDays</label>
+				<description>The number of days to get</description>
+				<options>
+					<option value="1">1 day</option>
+					<option value="2">2 days</option>
+					<option value="3">3 days</option>
+					<option value="4">4 days</option>
+					<option value="5">5 days</option>
+					<option value="6">6 days</option>
+					<option value="7">7 days</option>
+				</options>
+				<default>1</default>
+				<limitToOptions>true</limitToOptions>
+				<required>true</required>
+			</parameter>
+		</config-description>
+
+	</thing-type>
+
+	<channel-type id="calendarName">
+		<item-type>String</item-type>
+		<label>Description</label>
+		<description>Textual description of the warning.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="updates">
+		<kind>trigger</kind>
+		<label>Updated</label>
+		<description><![CDATA[Triggers NEW if a warning is send the first time.This happens after all other channels are populated]]></description>
+		<event>
+			<options>
+				<option value="NEW">New</option>
+			</options>
+		</event>
+	</channel-type>
+
+</thing:thing-descriptions>
