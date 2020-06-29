@@ -39,12 +39,24 @@ public class TimeTreeBindingConstants {
     // calendar
     public static final ThingTypeUID THING_TYPE_CALENDAR = new ThingTypeUID(BINDING_ID, "calendar");
 
-    public static final Set<ThingTypeUID> SUPPORTED_DEVICE_THING_TYPES_UIDS = new HashSet<>(Arrays.asList(THING_TYPE_CALENDAR));
-
-    // List of all Channel ids
+    // Channels of Calendar
     public static final String CHANNEL_LAST_UPDATED = "lastUpdated";
     public static final String CHANNEL_UPDATES = "updates";
     public static final String CHANNEL_CALENDARNAME = "calendarName";
+
+    // Channels of ChannelGroup Event
+    public static final String CHANNEL_CATEGORY = "category";
+    public static final String CHANNEL_TITLE = "title";
+    public static final String CHANNEL_ALLDAY = "allDay";
+    public static final String CHANNEL_STARTAT = "startAt";
+    public static final String CHANNEL_STARTTIMEZONE = "startTimeZone";
+    public static final String CHANNEL_ENDAT = "endAt";
+    public static final String CHANNEL_ENDTIMEZONE = "endTimeZone";
+    public static final String CHANNEL_DESCRIPTION = "description";
+    public static final String CHANNEL_LOCATION = "location";
+    public static final String CHANNEL_URL = "url";
+    public static final String CHANNEL_UPDATEDAT = "updatedAt";
+    public static final String CHANNEL_CREATEDAT = "createdAt";
 
     public static final String PERSONALACCESSTOKEN = "personalAccessToken";
     public static final String REFRESH = "refresh";

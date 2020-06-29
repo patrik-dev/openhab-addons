@@ -29,31 +29,165 @@
 		<label>Calendar</label>
 		<description>Calendar</description>
 
+		<channel-groups>
+			<channel-group id="calendarDetails" typeId="calendarDetails">
+				<label>Calendar Details</label>
+			</channel-group>
+
+			<channel-group id="event1" typeId="event">
+				<label>Event 1</label>
+			</channel-group>
+
+			<channel-group id="event2" typeId="event">
+				<label>Event 2</label>
+			</channel-group>
+
+			<channel-group id="event3" typeId="event">
+				<label>Event 3</label>
+			</channel-group>
+
+			<channel-group id="event4" typeId="event">
+				<label>Event 4</label>
+			</channel-group>
+
+			<channel-group id="event5" typeId="event">
+				<label>Event 5</label>
+			</channel-group>
+
+			<channel-group id="event6" typeId="event">
+				<label>Event 6</label>
+			</channel-group>
+
+			<channel-group id="event7" typeId="event">
+				<label>Event 7</label>
+			</channel-group>
+
+			<channel-group id="event8" typeId="event">
+				<label>Event 8</label>
+			</channel-group>
+
+			<channel-group id="event9" typeId="event">
+				<label>Event 9</label>
+			</channel-group>
+
+			<channel-group id="event10" typeId="event">
+				<label>Event 10</label>
+			</channel-group>
+
+		</channel-groups>
+	</thing-type>
+
+	<channel-group-type id="calendarDetails">
+		<label>Calendar Details</label>
+		<description>TDetails of the Calendar</description>
 		<channels>
 			<channel id="calendarName" typeId="calendarName"/>
 			<channel id="updates" typeId="updates"/>
 		</channels>
+	</channel-group-type>
 
-		<config-description>
-			<parameter name="eventDays" type="integer">
-				<label>EventDays</label>
-				<description>The number of days to get</description>
-				<options>
-					<option value="1">1 day</option>
-					<option value="2">2 days</option>
-					<option value="3">3 days</option>
-					<option value="4">4 days</option>
-					<option value="5">5 days</option>
-					<option value="6">6 days</option>
-					<option value="7">7 days</option>
-				</options>
-				<default>1</default>
-				<limitToOptions>true</limitToOptions>
-				<required>true</required>
-			</parameter>
-		</config-description>
+	<channel-group-type id="event">
+		<label>Event</label>
+		<description>This is a Event-Channel</description>
+		<channels>
+			<channel id="category" typeId="category" />
+			<channel id="title" typeId="title" />
+			<channel id="allDay" typeId="allDay" />
+			<channel id="startAt" typeId="startAt" />
+			<channel id="startTimeZone" typeId="startTimeZone" />
+			<channel id="endAt" typeId="endAt" />
+			<channel id="endTimeZone" typeId="endTimeZone" />
+			<channel id="description" typeId="description" />
+			<channel id="location" typeId="location" />
+			<channel id="url" typeId="url" />
+			<channel id="updatedAt" typeId="updatedAt" />
+			<channel id="createdAt" typeId="createdAt" />
+		</channels>
+	</channel-group-type>
 
-	</thing-type>
+	<channel-type id="category">
+		<item-type>String</item-type>
+		<label>Category</label>
+		<description>Category of the Event</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="title">
+		<item-type>String</item-type>
+		<label>Title</label>
+		<description>Title of the Event</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="allDay">
+		<item-type>Switch</item-type>
+		<label>All-Day</label>
+		<description>All-Day Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="startAt">
+		<item-type>DateTime</item-type>
+		<label>Start-Time</label>
+		<description>Start time of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="startTimeZone">
+		<item-type>DateTime</item-type>
+		<label>Start-Time-Timezone</label>
+		<description>Timezone of the Event start.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="endAt">
+		<item-type>DateTime</item-type>
+		<label>End-Time</label>
+		<description>Start time of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="endTimeZone">
+		<item-type>String</item-type>
+		<label>End-Time-Timezone</label>
+		<description>Timezone of the Event end.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="description">
+		<item-type>String</item-type>
+		<label>Description</label>
+		<description>Textual description of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="location">
+		<item-type>String</item-type>
+		<label>Location</label>
+		<description>The Country of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="url">
+		<item-type>String</item-type>
+		<label>Url</label>
+		<description>Optional URL of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="updatedAt">
+		<item-type>DateTime</item-type>
+		<label>Updated-At</label>
+		<description>Update time of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="createdAt">
+		<item-type>DateTime</item-type>
+		<label>Created-At</label>
+		<description>Create time of the Event.</description>
+		<state readOnly="true"/>
+	</channel-type>
 
 	<channel-type id="calendarName">
 		<item-type>String</item-type>
